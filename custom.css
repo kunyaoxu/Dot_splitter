@@ -1,0 +1,113 @@
+h1 {
+    text-align: center;
+    background-color: #c3eccf;
+    margin-top: 0;
+    padding: 10px 0;
+}
+
+div.row {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container textarea {
+    resize: none;
+    display: block;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 100%;
+    font-size: 1.3em;
+    padding: 6px;
+    height: 32vh;
+    min-height: 60px;
+    /* margin: 0 auto; */
+}
+
+.container #output {
+    resize: none;
+    display: block;
+    overflow-y: visible;
+    overflow-x: hidden;
+    margin: 0 auto;
+    border: 1px solid #aaaaaa;
+    height: 36vh;
+    width: 100%;
+    font-size: 1.3em;
+    word-break: break-all;
+    font-family: monospace;
+}
+
+.btn {
+    /* position: relative; */
+    background-color: white;
+    box-shadow: none;
+    /* margin: auto; */
+    margin: 0 16px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.75em;
+    padding: 3px 16px;
+}
+
+.btn#runbtn,
+.btn#copybtn {
+    transition: color 0.2s, box-shadow 0.1s;
+}
+
+.btn#runbtn {
+    background-color: #e8144d;
+    /* transition: color 0.15s; */
+}
+
+.btn#runbtn:hover {
+    /* background-color: #cc1243; */
+    color: white;
+}
+
+
+/* .btn#runbtn:active {
+    color: gray;
+    box-shadow: inset 0 0 10px #000000;
+} */
+
+.btn#copybtn {
+    background-color: #247ba0;
+}
+
+.btn#copybtn:hover {
+    color: white;
+}
+
+.btn#runbtn:active,
+.btn#copybtn:active {
+    color: #aaaaaa;
+    box-shadow: inset 0 0 8px #000000;
+}
+
+.btn:active,
+.btn:focus {
+    /* it is not accessible */
+    /* outline: none; */
+}
+
+body {
+    background-color: #eaeaea;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* box-sizing */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

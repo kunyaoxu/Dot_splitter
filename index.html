@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot splitter</title>
+    <link rel="stylesheet" type="text/css" href="custom.css">
+</head>
+
+<body>
+    <h1>Dot splitter</h1>
+    <div class="container">
+        <div class="row">
+            <!-- onkeyup="autogrow(this);" onpaste="autogrow(this);" -->
+            <textarea id="input"></textarea>
+        </div>
+        <div class="row">
+            <button id="runbtn" class="btn">run splitter</button>
+            <button id="copybtn" class="btn">copy result</button>
+        </div>
+        <div class="row">
+            <p id="output"></p>
+        </div>
+    </div>
+    <!-- script -->
+    <script type="text/javascript" defer>
+    var textArea = document.getElementById("input");
+    var runBtn = document.getElementById("runbtn");
+    var copyBtn = document.getElementById("copybtn");
+    var outArea = document.getElementById("output");
+
+    runBtn.onclick = (e) => {
+        //e.preventDefault();
+        console.log("runBtn.onclick");
+        //1.先解決換行問題(直接把換行符號置換成空格)
+        //2.之後再過濾句點
+        //3.置換
+        let str = textArea.value.replace(/\n/g, " "); //1.
+        //textArea.value.split("\.").toString();
+        str = str.replace(/(\. )/g, ".\n");
+        //str = str.replace(/,/g, ".\n");
+
+        // let str = textArea.value.split("\.").toString();
+        // str = str.replace(/\n/g, " ");
+        //str = str.replace(/,/g, ".\n");
+
+        console.log(str);
+        outArea.innerText = str;
+    }
+
+    copyBtn.onclick = () => {
+        console.log("copyBtn.onclick");
+        var range = document.createRange();
+        range.selectNode(outArea);
+        document.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+
+        // outArea.select();
+        // document.execCommand("Copy");
+        document.getSelection().removeAllRanges();
+    }
+
+    // function autogrow(textarea) {
+    //     var adjustedHeight = textarea.clientHeight;
+    //     adjustedHeight = Math.max(textarea.scrollHeight, adjustedHeight);
+    //     textarea.scrollTop = 0;
+    //     if (adjustedHeight > textarea.clientHeight) {
+    //         textarea.style.height = adjustedHeight + 'px';
+    //     }
+    //     console.log("autogrow");
+    //     console.log(adjustedHeight);
+    //     console.log(textarea.scrollHeight);
+    // }
+    </script>
+</body>
+</html>
